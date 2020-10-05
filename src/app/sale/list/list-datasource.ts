@@ -7,8 +7,13 @@ import { SaleService } from './../services/sale.service';
 
 // TODO: Replace this with your own data model type
 export interface ListItem {
-  name: string;
   id: number;
+  date: Date,
+  name: string,
+  status: string,
+  orderTotal: number,
+  paymentMode: string
+
 }
 
 // TODO: replace this with real data from your application
@@ -26,7 +31,7 @@ export class ListDataSource extends DataSource<ListItem> {
 
   constructor(private saleService: SaleService) {
     super();
-    this.saleService.getSales().subscribe(res=>{
+    this.saleService.getSales().subscribe(res => {
       console.log(res);
       this.data = res;
     })
@@ -55,7 +60,7 @@ export class ListDataSource extends DataSource<ListItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect() {}
+  disconnect() { }
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
