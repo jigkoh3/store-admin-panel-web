@@ -17,7 +17,7 @@ export class ListComponent implements AfterViewInit, OnInit {
   dataSource: ListDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name', 'menu'];
+  displayedColumns = ['id', 'name'];
 
   constructor(private saleService: SaleService) {
 
